@@ -1,6 +1,9 @@
-import { ProductType } from "src/enums";
+import { ProductType } from 'src/enums';
 
-export class Product {
-    type:ProductType;
-    allocationPercent:number;
-};
+class Product {
+  type: ProductType;
+  producerId: string;
+  allocationPerHectare: number;
+}
+
+export { Product };
