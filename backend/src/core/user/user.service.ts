@@ -12,7 +12,7 @@ export class UserService {
   ) {}
 
   /**
-   * Create User in User Entity.
+   * Create User.
    * @param createUserDto this will type of createUserDto in which
    * we have defined what are the keys we are expecting from body
    * @returns promise of user
@@ -39,7 +39,7 @@ export class UserService {
    * @param id is the id of user.
    * @returns promise of user
    **/
-  viewUser(id: number): Promise<User> {
+  viewUser(id: string): Promise<User> {
     return this.userRepository.findOneBy({ id });
   }
 
@@ -49,7 +49,7 @@ export class UserService {
    * @param updateUserDto this is partial type of createUserDto.
    * @returns promise of update user
    **/
-  updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User> {
+  updateUser(id: string, updateUserDto: UpdateUserDto): Promise<User> {
     const user: User = new User();
     user.name = updateUserDto.name;
     user.email = updateUserDto.email;
@@ -64,7 +64,7 @@ export class UserService {
    * @param id is the id of user
    * @returns number of rows deleted or affected
    **/
-  removeUser(id: number): Promise<{ affected?: number }> {
+  removeUser(id: string): Promise<{ affected?: number }> {
     return this.userRepository.delete(id);
   }
 }
